@@ -11,6 +11,7 @@ jobs:
 
     steps:
       - name: Trigger CircleCI Pipeline
+        if: contains(github.event.release.tag_name, 'rc') == false
         run: |
           curl --request POST \
             --url https://circleci.com/api/v2/project/gh/snyk/code-local-engine/pipeline \
